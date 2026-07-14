@@ -1,0 +1,282 @@
+/* Main styles for VoIP interface */
+
+:root {
+    --primary-color: #3B82F6;
+    --primary-dark: #2563EB;
+    --secondary-color: #10B981;
+    --danger-color: #EF4444;
+    --warning-color: #F59E0B;
+    --dark-color: #1F2937;
+    --light-color: #F9FAFB;
+    --gray-color: #6B7280;
+    --border-radius: 12px;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* General styles */
+.main-header {
+    text-align: center;
+    color: var(--dark-color);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.sub-header {
+    text-align: center;
+    color: var(--gray-color);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+/* Card styles */
+.user-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin: 1rem 0;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.user-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.user-card.active {
+    border-left-color: var(--secondary-color);
+    background: linear-gradient(135deg, #667eea0d 0%, #764ba20d 100%);
+}
+
+/* Status indicators */
+.status-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.status-online {
+    background-color: var(--secondary-color);
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+
+.status-offline {
+    background-color: var(--gray-color);
+}
+
+.status-busy {
+    background-color: var(--warning-color);
+    animation: pulse 2s infinite;
+}
+
+.status-dnd {
+    background-color: var(--danger-color);
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Call interface */
+.call-container {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    color: white;
+    box-shadow: var(--shadow-lg);
+    margin: 2rem 0;
+}
+
+.call-active {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.call-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.call-timer {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 1rem 0;
+    font-family: 'Courier New', monospace;
+}
+
+.call-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.control-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.control-btn:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-lg);
+}
+
+.control-btn:active {
+    transform: scale(0.95);
+}
+
+.call-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.mute-btn {
+    background-color: var(--gray-color);
+    color: white;
+}
+
+.mute-btn.active {
+    background-color: var(--danger-color);
+}
+
+.end-btn {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.volume-btn {
+    background-color: var(--warning-color);
+    color: white;
+}
+
+/* Incoming call alert */
+.incoming-call {
+    animation: incomingCallPulse 1.5s infinite;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+@keyframes incomingCallPulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7); }
+    70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(102, 126, 234, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(102, 126, 234, 0); }
+}
+
+/* User avatar colors */
+.avatar-blue { background-color: #3B82F6; }
+.avatar-green { background-color: #10B981; }
+.avatar-purple { background-color: #8B5CF6; }
+.avatar-orange { background-color: #F59E0B; }
+.avatar-red { background-color: #EF4444; }
+.avatar-pink { background-color: #EC4899; }
+.avatar-indigo { background-color: #6366F1; }
+
+/* Form styles */
+.auth-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.form-input {
+    margin-bottom: 1.5rem;
+}
+
+.form-input label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+    font-weight: 500;
+}
+
+.form-input input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-input input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Progress bar */
+.progress-bar {
+    height: 4px;
+    background-color: #E5E7EB;
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+/* Toast notifications */
+.toast-success {
+    background-color: var(--secondary-color) !important;
+    color: white !important;
+}
+
+.toast-error {
+    background-color: var(--danger-color) !important;
+    color: white !important;
+}
+
+.toast-info {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .call-controls {
+        gap: 1rem;
+    }
+    
+    .control-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .call-timer {
+        font-size: 2rem;
+    }
+}
